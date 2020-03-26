@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import "./App.css";
-import { motion } from "framer-motion";
-import QuestionDisplay from "./comp/QuestionDisplay/QuestionDisplay";
-import ScoreBoard from "./comp/ScoreBoard/ScoreBoard";
+import React, { useState } from 'react';
+import './App.css';
+import { motion } from 'framer-motion';
+import QuestionDisplay from './comp/QuestionDisplay/QuestionDisplay';
+import ScoreBoard from './comp/ScoreBoard/ScoreBoard';
 
 function App() {
   const [questions, setQuestions] = useState();
@@ -11,17 +11,17 @@ function App() {
 
   async function fetchQuestions() {
     const res = await fetch(
-      "https://opentdb.com/api.php?amount=25&type=boolean"
+      'https://opentdb.com/api.php?amount=25&type=boolean'
     );
     const data = await res.json();
     setQuestions(data.results[0]);
-    setAnswerDisplay("");
+    setAnswerDisplay('');
   }
 
   return (
     <div className="app">
       <motion.h1
-        eanimat={{
+        animate={{
           scale: [1, 1.2, 1.4, 1.2, 1, 1.2, 1.4, 1.2, 1]
         }}
         className="mainHeader"
